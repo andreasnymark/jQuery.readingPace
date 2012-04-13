@@ -11,7 +11,7 @@
 		    plural: 'minutes',
 		    before: 'It takes about',
 		    after: 'to read.',
-		    wrap: '<div id="pace" />'
+		    wrap: '<div class="pace" />'
 		};  
 		var options = $.extend(defaults, options); 
 		return this.each(function() { 
@@ -21,8 +21,8 @@
 			var mins = Math.ceil(arr.length/options.pace);
 			var output = options.before  + unit(mins) + options.after;
 			o
-				.after($('<span />')) 
-				.next().text(output)
+				.before($('<span />')) 
+				.prev().text(output)
 				.wrap(options.wrap);
 		});
 		function unit(v) {
